@@ -17,7 +17,8 @@ class NodeMutation::AppendAction < NodeMutation::Action
   # @return [String] rewritten code.
   def new_code
     if rewritten_source.split("\n").length > 1
-      "\n" + rewritten_source.split("\n").map { |line| indent(@node) + line }.join("\n") + "\n"
+      "\n" + rewritten_source.split("\n").map { |line| indent(@node) + line }
+                             .join("\n") + "\n"
     else
       indent(@node) + rewritten_source + "\n"
     end
